@@ -1,5 +1,6 @@
 package lab3;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public interface EmployeeUtil {
     static int totalSalaries(List<Employee> employees) {
-        return 0;
+       return employees.stream().flatMapToInt(employee -> Arrays.stream(employee.getSalaries())).sum();
 
     }
 }
