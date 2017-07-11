@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,6 +34,9 @@ public class Main1 {
         System.out.println("average = " + average.getAsDouble());
 
 
+        wordsList.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .entrySet().stream().sorted((o1, o2) -> (int)(o1.getValue()-o2.getValue()))
+                .forEach(System.out::println);
 
         reader.close();
     }

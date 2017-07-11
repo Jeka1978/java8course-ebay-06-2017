@@ -1,5 +1,6 @@
 package date_and_time;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -18,5 +19,9 @@ public class Main {
         System.out.println("value = " + value);
 
         System.out.println("between = " + between);
+
+        LocalDate startDate = LocalDate.of(2016, 1, 13);
+        LocalDate endYearDate = LocalDate.of(2017, 12, 14);
+        System.out.println(ChronoUnit.MONTHS.between(startDate,endYearDate));
     }
 }
