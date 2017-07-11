@@ -8,6 +8,11 @@ import java.util.stream.Stream;
  * Created by Evegeny on 09/07/2017.
  */
 public interface EmployeeUtil {
+
+    static List<String> namesSortedBySalary(List<lab2.Employee> employees) {
+        return null;
+    }
+
     static int totalSalaries(List<Employee> employees) {
        return employees.stream().flatMapToInt(employee -> Arrays.stream(employee.getSalaries())).sum();
 

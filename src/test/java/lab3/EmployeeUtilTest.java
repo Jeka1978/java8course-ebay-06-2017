@@ -13,6 +13,16 @@ import static org.junit.Assert.*;
  */
 public class EmployeeUtilTest {
     @Test
+    public void namesSortedBySalary() throws Exception {
+        List<lab2.Employee> employees = Arrays.asList(new lab2.Employee("Beni", 30), new lab2.Employee("Liran", 25),
+                new lab2.Employee("Liraz", 50));
+        List<String> names = EmployeeUtil.namesSortedBySalary(employees);
+        Assert.assertEquals("Liraz",names.get(0));
+        Assert.assertEquals("Beni",names.get(1));
+        Assert.assertEquals("Liran",names.get(2));
+    }
+
+    @Test
     public void totalSalaries() throws Exception {
 
         int[] salaries1 = {1,2,3};
