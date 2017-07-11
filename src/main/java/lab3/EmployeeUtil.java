@@ -2,6 +2,7 @@ package lab3;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -10,13 +11,15 @@ import java.util.stream.Stream;
 public interface EmployeeUtil {
 
     static List<String> namesSortedBySalary(List<lab2.Employee> employees) {
-        return null;
+        return employees.stream().sorted((e1, e2) -> e2.getSalary() - e1.getSalary())
+        .map(lab2.Employee::getName).collect(Collectors.toList());
     }
 
     static int totalSalaries(List<Employee> employees) {
-       return employees.stream().flatMapToInt(employee -> Arrays.stream(employee.getSalaries())).sum();
+        return employees.stream().flatMapToInt(employee -> Arrays.stream(employee.getSalaries())).sum();
 
     }
+
     static void printSortedEmployeesSortedByLengthOfTheName(List<Employee> employees) {
         Stream<Employee> sorted = employees.stream().filter(employee -> employee.getName().toUpperCase().equals(employee.getName()))
                 .sorted((e1, e2) -> e2.getName().length() - e1.getName().length());
