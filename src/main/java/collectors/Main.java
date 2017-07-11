@@ -17,7 +17,8 @@ public class Main {
                 new lab2.Employee("Liran", 50));
 
         Map<String, Integer> map = employees.stream().collect(
-                Collectors.toMap(Employee::getName, Employee::getSalary));
+                Collectors.toMap(Employee::getName, Employee::getSalary,
+                        (oldSalary, newSalary) -> oldSalary + newSalary));
         System.out.println("map = " + map);
     }
 }
